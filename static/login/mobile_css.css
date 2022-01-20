@@ -1,0 +1,234 @@
+/*Mobile Layout*/
+/*@media(max-width: 641px){*/
+    @media(max-width: 854px){
+
+        .nav1,.nav2,#mainf{
+            display: none
+        }
+        figure img{
+            width: 100%;
+            height: auto;
+            margin: auto;
+        }
+        #mobilenav{
+            display: block;
+            width: 50%;
+            margin: auto;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #262626;
+            text-align: center;
+        }
+        li{
+            font: 11px Montreal;
+            color: #CDD1D1;
+            text-shadow: 0px 0px 4px black;
+            width: 100%;
+        }
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: #C20000;
+        }
+        li.dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            text-align: center;
+            width: 45%;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font: 10px "Open Sans";
+            text-shadow: 0px 0px 0px; 
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        #content{
+            height: 400px;
+        }
+        #mobilef1,#mobilef2{
+            display: inline-block;
+            background-color: #262626;
+            width: 50%;
+        }
+        #mobilef1 a, #mobilef2 a{
+            color: white;
+            font: 11px Gravity;
+        }
+        #mobilef1{
+            float:left;
+            border-radius: 4px 0px 0px 4px;
+        }
+        #mobilef2{
+            float:right;
+            border-radius: 0px 4px 4px 0px;
+        }
+        #gradient{
+            height: 26%;
+        }
+    
+        #fig{
+            background: rgba(15,15,15,0.7);
+            padding: 0px 15px 5px 15px;
+            margin-top: 50%;
+            width: 93%;	}
+    
+        #fig4{
+            font-size: 10px;
+            text-align: center;
+        }
+    
+    }
+    @media(min-width: 650px) and (max-width: 750px ){
+        #gradient{
+            height: 20%;
+        }
+    }
+    @media(min-width: 0px) and (max-width: 649px ){
+        #gradient{
+            height: 15%;
+        }
+    }
+
+
+
+
+    
+.stark-login form:hover {
+    border: 6px solid #00fffd;
+    box-shadow: 0 0 25px #00fffd;
+    transition: 1s all;
+  }
+  .stark-login input {
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-size: 1.3rem;
+    height: 40px;
+    margin: 20px auto 10px;
+    padding: 0 10px;
+    text-shadow: 0 -1px 0 #000;
+    width: 400px;
+  }
+  .stark-login input:focus {
+    animation: box-glow 1s ease-out infinite alternate;
+    background: #0B4252;
+    background: linear-gradient(#333933, #222922);
+    border-color: #00fffc;
+    box-shadow: 0 0 5px rgba(0, 255, 253, 0.2), inset 0 0 5px rgba(0, 255, 253, 0.1), 0 2px 0 #000;
+    color: #efe;
+    outline: none;
+  }
+  .stark-login input:invalid {
+    border: 2px solid red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2), inset 0 0 5px rgba(255, 0, 0, 0.1), 0 2px 0 #000;
+  }
+  .stark-login button {
+    animation: input-entry 3s ease-in;
+    background: #222;
+    background: linear-gradient(#333333, #222222);
+    box-sizing: content-box;
+    border: 1px solid #444;
+    border-left-color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #fff;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px auto;
+    padding: 0;
+    position: relative;
+    text-shadow: 0 -1px 0 #000;
+    width: 400px;
+    transition: 1s all;
+  }
+  .stark-login button:hover,
+  .stark-login button:focus {
+    background: #0C6125;
+    background: linear-gradient(#393939, #292929);
+    color: #00fffc;
+    outline: none;
+    transition: 1s all;
+  }
+  .stark-login button:active {
+    background: #292929;
+    background: linear-gradient(#393939, #292929);
+    box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+    top: 1px;
+  }
+  
+  /* =========================================
+  Spinner
+  ========================================= */
+  #circle1 {
+    animation: circle1 4s linear infinite, circle-entry 6s ease-in-out;
+    background: #000;
+    border-radius: 50%;
+    border: 10px solid #00a4a2;
+    box-shadow: 0 0 0 2px black, 0 0 0 6px #00fffc;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -250px;
+    overflow: hidden;
+    opacity: 0.4;
+    z-index: -3;
+  }
+  
+  #inner-cirlce1 {
+    background: #000;
+    border-radius: 50%;
+    border: 36px solid #00fffc;
+    height: 460px;
+    width: 460px;
+    margin: 10px;
+  }
+  #inner-cirlce1:before {
+    content: ' ';
+    width: 240px;
+    height: 480px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #inner-cirlce1:after {
+    content: ' ';
+    width: 480px;
+    height: 240px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
