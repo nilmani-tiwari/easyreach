@@ -69,5 +69,20 @@ class SponsorAd(models.Model):
         return super(SponsorAd, self).save(*args, **kwargs)
 
 
+from datetime import datetime
+class Sitemap(models.Model):
+    title = models.CharField(max_length=100)
+    url = models.URLField(blank=True,null=True)
+    ampurl=models.URLField(blank=True,null=True)
+    # lastmod=models.CharField(max_length=100,blank=True,null=True) 
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(blank=True, auto_now=True, null=True)
 
-        
+    def __str__(self):
+        return f"{self.title}"
+
+    # def save(self, *args, **kwargs):
+    #     date = datetime.strptime(self.modified_at, "%Y-%m-%d")
+    #     self.lastmod=str(date)
+    #     return super(Sitemap, self).save(*args, **kwargs)
+

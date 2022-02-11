@@ -16,19 +16,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from common.views import *
+from texteditor.views import *
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home,name="home"),
+    path('index.html', home2,name="home2"),
     path('show_ads/<id>/', show_ads, name='show_ads'),
     path('login_user/', login_user,name="login_user"),
     path('signup/', signup,name="signup"),
     path('signout/', logoutUser,name="logout"),
 
     path('forgot_password/', forgot_password,name="forgot_password"),
+    path('text2html/', TextHtml,name="text_html"),
+    path('sitemaps/main.xml', MainSitemap.as_view(), name='main_sitemap'),
 
 ]
 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)     
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 

@@ -11,6 +11,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import TemplateView, View
+
 
 # from ssf.models import BlogPost, VideoUpload, project_image
 # from ssf.models import *
@@ -22,6 +24,22 @@ from common.models import *
 
 
 import datetime
+
+
+class MainSitemap(TemplateView):
+    template_name = 'sitemap/sitemap.xml'
+    content_type = 'text/xml'
+
+    def get(self, request):
+        context = self.get_context_data()
+
+        urlmap = Sitemap.objects.all()
+        context['urlmap'] = urlmap
+
+        return self.render_to_response(context)
+
+
+
 
 def show_ads(request,id):
 
@@ -107,6 +125,13 @@ def home(request):
     context={"user":username}
 
     return render(request,'dashboard.html' , context)
+
+
+def home2(request): 
+    username = request.user.username
+    context={"user":username}
+
+    return render(request,'AdminLite1/index.html' , context)
 
 
 
