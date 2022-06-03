@@ -135,6 +135,8 @@ def home2(request):
 
 
 
+
+
 def logoutUser(request):
     logout(request)
     return redirect('home')
@@ -191,3 +193,38 @@ def forgot_password(request):
            
     
     return render(request,'login/forgot_password.html' , context)
+
+
+# def base(request): 
+#     username = request.user.username
+#     context={"user":username}
+
+#     return render(request,'home/base.html' , context)
+
+
+def base(request): 
+    username = request.user.username
+    context={"user":username}
+
+    return render(request,'home/index.html' , context)
+
+@login_required(login_url='login_user')
+def form_submit(request): 
+    username = request.user.username
+    context={"user":username}
+    if request.method == 'POST':
+        print(request.POST)
+        print("***************************************")
+
+    return render(request,'home/index_submit.html' , context)
+
+
+@login_required(login_url='login_user')
+def press_key(request): 
+    username = request.user.username
+    context={"user":username}
+    if request.method == 'POST':
+        print(request.POST)
+        print("***************************************")
+
+    return render(request,'game/test1.html' , context)

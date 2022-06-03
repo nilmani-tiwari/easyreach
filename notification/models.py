@@ -16,6 +16,7 @@ from django.utils import timezone
 from django.db import models
 from django.db.models import CASCADE, SET_NULL
 from django.contrib.auth.models import User
+from easyreach.utils.ses_email import send_email
 
 # from fcm_django.fcm import response_dict
 # from fcm_django.models import FCMDevice, FCMDeviceQuerySet
@@ -81,3 +82,71 @@ class EmailOutreach(models.Model):
 
         return
 
+
+
+
+class UserVerificationCodes(models.Model):
+    usr = models.ForeignKey(User, related_name="user_verification", on_delete=CASCADE)
+    otp=models.IntegerField()
+    verified = models.BooleanField(default=False,blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "[{}] - {}".format(self.otp, self.usr)
+
+    class Meta:
+        verbose_name = "User Verification Code"
+        verbose_name_plural = "User Verification Codes"
+
+    def send_email(self, recepient_email):
+        send_email(
+            subject="[{}] Your Verification Code for EasyReach.Today".format(self.otp),
+            message="[{}] Your Verification Code for EasyReach.Today".format(self.otp),
+            # template='notification/email/podcast_otp.html',
+            template='notification/email/user_otp.html',
+            data={
+                "otp": self.otp,
+                "podcast": self.usr.email
+            },
+            recipient_list=["alokraj.ad@gmail.com", recepient_email],
+            from_email="User Verification <alokraj.ad@gmail.com>"
+        )
+        return
+
+
+#E:\c drive data\My Home\easyest_deployment\backup\easyreach\templates\notification\email\podcast_otp.html
+
+#    use    UserVerificationCodes    need template='emails/podcast_otp.html', 
+
+# codes = PodcastVerificationCodes.objects.filter(podcast=podcast, created_at__gte=datetime.utcnow()-timedelta(days=1))
+# if not codes.exists():
+#     code = PodcastVerificationCodes.objects.create(podcast=podcast, otp=random.randint(1000, 9999))
+#     code.send_email(recepient_email=request_verification_email)
+
+# import random
+# usr=User.objects.filter(username="nilamani@tickle.life")
+# if usr.exists():
+#     usr=usr.first()
+# codes = UserVerificationCodes.objects.filter(usr=usr, created_at__gte=datetime.utcnow()-timedelta(days=1))
+# if not codes.exists():
+#     code = UserVerificationCodes.objects.create(usr=usr, otp=random.randint(1000, 9999))
+#     code.send_email(recepient_email=request_verification_email)
+#     print("code sent")
+# else:
+#    print("exist")
+
+
+# from django.contrib.auth.models import User
+# from notification.models import *
+# import random
+# request_verification_email="sambadnilmani085@gmail.com"
+# usr=User.objects.filter(username="sambadnilmani085@gmail.com")
+# if usr.exists():
+#     usr=usr.first()
+# codes = UserVerificationCodes.objects.filter(usr=usr, created_at__gte=datetime.utcnow()-timedelta(days=1))
+# if not codes.exists():
+#     code = UserVerificationCodes.objects.create(usr=usr, otp=random.randint(1000, 9999))
+#     code.send_email(recepient_email=request_verification_email)
+#     print("code sent")
+# else:
+#    print("exist")
